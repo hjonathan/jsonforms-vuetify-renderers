@@ -6,6 +6,7 @@
       :data="data"
       :uischema="uischema"
       :schema="schema"
+      height="500"
     />
     <EmptyEditor v-else />
   </div>

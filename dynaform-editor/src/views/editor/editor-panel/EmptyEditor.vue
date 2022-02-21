@@ -3,20 +3,24 @@
     class="d-flex align-center justify-center pa-4 mx-auto"
     max-width="550"
     min-height="76"
+    height="auto"
     outlined
   >
     <div :class="`text-caption`">
+      <span>
+        Drag and drop an element from the Palette to begin.
+      </span>
       <draggable
-        class="dragArea list-group"
+        class="dragAreaItem list-group"
         :list="list1"
         group="people"
         @change="handleChange"
       >
-      </draggable>
-      Drag and drop an element from the Palette to begin.
+      
       <div class="list-group-item" v-for="element in list1" :key="element.type">
         {{ element.type }}
       </div>
+      </draggable>
     </div>
   </v-card>
 </template>
@@ -52,3 +56,10 @@ export default {
   },
 };
 </script>
+<style>
+  .dragArea,
+  .dragAreaItem {
+    width: 100%;
+    min-height: 50px;
+  }
+</style>

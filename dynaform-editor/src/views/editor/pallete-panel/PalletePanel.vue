@@ -10,12 +10,16 @@
 
       <v-tab-item>
         <draggable
-          class="dragArea list-group"
+          class="list-group"
           :list="paletteElements"
           :group="{ name: 'people', pull: 'clone', put: false }"
           :sort="false"
         >
-          <div v-for="element in paletteElements" :key="element.type">
+          <div
+            v-for="element in paletteElements"
+            :key="element.type"
+            class="item"
+          >
             <v-icon v-text="element.icon"></v-icon>
 
             <span v-text="element.label"></span>
@@ -23,7 +27,7 @@
         </draggable>
         <h4>Controls</h4>
         <draggable
-          class="dragArea list-group"
+          class="list-group"
           :list="getChildrenToRender(schema)"
           :group="{ name: 'people', pull: 'clone', put: false }"
           :sort="false"
@@ -31,6 +35,7 @@
           <div
             v-for="item in getChildrenToRender(schema)"
             :key="item.element.uuid"
+            class="item"
           >
             <span v-text="getLabel(item.element)"></span>
           </div>
@@ -108,3 +113,8 @@ export default {
   },
 };
 </script>
+<style>
+  .item span {
+    cursor: grab;
+  }
+</style>
